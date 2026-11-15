@@ -1,0 +1,58 @@
+[package]
+name = "vela-web"
+description = "Browser (WebAssembly) layer of the Vela charting library port: the platform services vela-core leaves to its host."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+vela-core = { path = "../vela-core" }
+# Pinned: the wasm-bindgen CLI that post-processes the build must match this version exactly.
+wasm-bindgen = "=0.2.130"
+js-sys = "0.3.107"
+wasm-bindgen-futures = "0.4.80"
+web-sys = { version = "0.3.107", features = [
+    "CanvasGradient",
+    "CanvasRenderingContext2d",
+    "Comment",
+    "CssStyleDeclaration",
+    "Attr",
+    "Document",
+    "DocumentFragment",
+    "DomRect",
+    "Element",
+    "Event",
+    "WebGl2RenderingContext",
+    "WebGlBuffer",
+    "WebGlFramebuffer",
+    "WebGlProgram",
+    "WebGlShader",
+    "WebGlTexture",
+    "WebGlUniformLocation",
+    "WebGlVertexArrayObject",
+    "WebglLoseContext",
+    "EventTarget",
+    "HtmlCanvasElement",
+    "HtmlElement",
+    "HtmlHeadElement",
+    "KeyboardEvent",
+    "MouseEvent",
+    "NamedNodeMap",
+    "Node",
+    "NodeList",
+    "PointerEvent",
+    "Text",
+    "TextMetrics",
+    "WheelEvent",
+] }
+# float_roundtrip: an imported drawings document must parse to the exact doubles it was
+# exported from (the default parser can be one ulp off, which a re-export would show).
+serde_json = { version = "1.0.154", features = ["float_roundtrip"] }
+
+[features]
+# Exports the batch entry point the parity check against the original drives.
+parity = []

@@ -1,0 +1,12 @@
+[package]
+name = "vela-core"
+description = "Renderer-neutral core of the Vela charting library, ported to Rust: data model, classic indicators, user drawing tools."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+serde = { version = "1.0.229", features = ["derive"] }
+# float_roundtrip: parse a number to the nearest f64, as JavaScript does, so saved documents round-trip exactly.
+serde_json = { version = "1.0.154", features = ["float_roundtrip"] }

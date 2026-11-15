@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vela (Rust) pencere öğesi demosu</title>
+    <style>
+        html, body { margin: 0; height: 100%; background: #151619; color: #b2b5be; font-family: sans-serif; }
+        body { display: flex; flex-direction: column; }
+        #widget { flex: 1 1 auto; min-height: 0; position: relative; }
+        #message { position: fixed; left: 16px; top: 16px; max-width: 60ch; white-space: pre-wrap; }
+        /* Bağlantılar pencere öğesinin altında kendi satırında durur, hiçbir denetimin üstüne binmez. */
+        #links { flex: none; display: flex; justify-content: flex-end; gap: 12px; padding: 3px 10px; font-size: 11px; border-top: 1px solid #2a2b30; }
+        #links a { color: inherit; opacity: .75; text-decoration: none; }
+        #links a:hover, #links a:focus-visible { opacity: 1; text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div id="widget"></div>
+    <div id="message" hidden></div>
+    <nav id="links" aria-label="Demo bağlantıları">
+        <a href="./widget.html?lang=tr">Türkçe</a>
+        <a href="./widget.html">English</a>
+        <a href="./index.html">tek grafik demosu</a>
+    </nav>
+    <script type="module" src="./widget.js"></script>
+</body>
+</html>

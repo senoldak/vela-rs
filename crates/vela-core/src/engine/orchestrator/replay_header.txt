@@ -1,0 +1,16 @@
+//! The bar-replay section of the orchestrator: everything named `replay*` and
+//! its private helpers (forming bar, ticks, timers, `end_replay`,
+//! `merge_history_into_replay`, `restart_bar_consumers`, ...).
+//!
+//! Notes for the port:
+//! - `replay_start` MUST run its synchronous prefix when it is CALLED (the
+//!   original is an `async` function: a start with no history to wait for cuts
+//!   synchronously, and `set_market` relies on that through
+//!   `resume_carried_replay`). Do the prefix in the plain function, or run the
+//!   body through `eager`.
+//! - Public async methods that mutate the chart should run to completion even
+//!   if the caller drops the returned future (a JavaScript promise does):
+//!   spawn the work and return a future that awaits a `ResolveOnce`, as
+//!   `set_market` does.
+//! - The queue is a `VecDeque` (`State::replay_queue`); `State::replay_carrying`
+//!   is shared by identity (`Rc::ptr_eq`), its `cancelled` flag is a `Cell`.

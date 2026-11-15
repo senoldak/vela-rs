@@ -1,0 +1,12 @@
+/target
+/pkg
+/pkg-parity
+/catalog.json
+/drawings.json
+/misc.json
+/paint.json
+/scene.json
+/series.json
+/.upstream
+/gl.json
+/.impeccable

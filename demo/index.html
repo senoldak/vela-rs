@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vela (Rust) demo</title>
+    <style>
+        html, body { margin: 0; height: 100%; background: #151619; color: #b2b5be; font-family: sans-serif; }
+        #chart { position: fixed; inset: 0; }
+        #message { position: fixed; left: 16px; top: 16px; max-width: 60ch; white-space: pre-wrap; }
+        #more, #more-widget { position: fixed; right: 8px; font-size: 12px; line-height: 16px; color: #b2b5be; background: #151619; padding: 0 4px; text-decoration: none; }
+        #more { bottom: 2px; }
+        #more-widget { bottom: 20px; }
+        #more:hover, #more:focus-visible, #more-widget:hover, #more-widget:focus-visible { color: #fff; text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div id="chart" lang="en"></div>
+    <div id="message" hidden></div>
+    <a id="more" href="./workspace.html">çoklu grafik demosu</a>
+    <a id="more-widget" href="./widget.html">tam pencere öğesi demosu</a>
+    <script type="module" src="./main.js"></script>
+</body>
+</html>

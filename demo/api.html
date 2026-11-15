@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vela (Rust) gömme örneği</title>
+    <style>
+        html, body { margin: 0; height: 100%; background: #151619; color: #b2b5be; font-family: sans-serif; }
+        body { display: flex; flex-direction: column; }
+        .chart { flex: 1 1 0; min-height: 0; position: relative; border-bottom: 1px solid #2a2b30; }
+        #message { position: fixed; left: 16px; top: 16px; max-width: 60ch; white-space: pre-wrap; }
+    </style>
+</head>
+<body>
+    <div id="chart" class="chart" lang="en"></div>
+    <div id="live" class="chart" lang="en"></div>
+    <div id="message" hidden></div>
+    <script type="module" src="./api.js"></script>
+</body>
+</html>

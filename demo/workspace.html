@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vela (Rust) çalışma alanı demosu</title>
+    <style>
+        html, body { margin: 0; height: 100%; background: #151619; color: #b2b5be; font-family: sans-serif; }
+        body { display: flex; flex-direction: column; }
+        /* Demo denetimleri: pencere öğesinin dışında, düz HTML düğmeleri. */
+        #controls { flex: none; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 16px; padding: 8px 12px; border-bottom: 1px solid #2a2b30; font-size: 13px; }
+        #controls .title { font-weight: 600; opacity: .75; }
+        #controls .group { display: flex; align-items: center; gap: 4px; }
+        #controls .group > span { opacity: .65; margin-inline-end: 2px; }
+        #controls button { font: inherit; color: inherit; background: #1e2026; border: 1px solid #34353b; border-radius: 4px; padding: 3px 9px; cursor: pointer; }
+        #controls button[aria-pressed='true'] { background: #f0f3fa; color: #151619; border-color: #f0f3fa; }
+        #controls button:focus-visible { outline: 2px solid #38c0fd; outline-offset: 1px; }
+        #workspace { flex: 1 1 auto; min-height: 0; position: relative; }
+        #message { position: fixed; left: 16px; top: 64px; max-width: 60ch; white-space: pre-wrap; }
+    </style>
+</head>
+<body>
+    <div id="controls" role="toolbar" aria-label="Demo denetimleri">
+        <span class="title">Demo denetimleri (pencere öğesinin dışında)</span>
+        <span class="group" id="layouts"><span>Yerleşim:</span></span>
+        <span class="group"><span>Eşitleme:</span>
+            <button type="button" id="sync-symbol" aria-pressed="false">Sembol</button>
+            <button type="button" id="sync-crosshair" aria-pressed="false">İmleç</button>
+        </span>
+        <span class="group"><span>Tema:</span>
+            <button type="button" id="theme" aria-pressed="false">Açık tema</button>
+        </span>
+    </div>
+    <div id="workspace" lang="en"></div>
+    <div id="message" hidden></div>
+    <script type="module" src="./workspace.js"></script>
+</body>
+</html>
